@@ -11,9 +11,11 @@ export const FetchWeather = ({ cityName }) => {
     {error && <h3>There has been an error</h3>}
     {data &&
     <div> 
-    <h2>City: {cityName}</h2>
+    <h2>City: {data.name}</h2>
     <h3>Weather description:</h3>
-    <h4> Main: {data.weather[0].main}; Description: {data.weather[0].description}</h4>
+    <h4> Main: {data.weather[0].main}</h4>
+    <h4>Details: {data.weather[0].description}</h4>
+    <img src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt="weather icon" />
     </div>}  
   </>;
 };
