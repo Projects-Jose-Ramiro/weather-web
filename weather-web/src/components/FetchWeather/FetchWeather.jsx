@@ -12,6 +12,7 @@ export const FetchWeather = ({ cityName }) => {
     {data &&
     <div> 
     <h2>City: {data.name}</h2>
+    <h3>Temperature: {parseInt(data?.main?.temp - 273.15)}ºC</h3>
     <h3>Weather description:</h3>
     <h4> Main: {data.weather[0].main}</h4>
     <h4>Details: {data.weather[0].description}</h4>
