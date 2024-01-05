@@ -1,12 +1,12 @@
 import "./App.css";
-import { FetchWeather } from "./components/FetchWeather/FetchWeather";
+import { CityInput } from "./components/CityInput/CityInput";
 
 function App() {
 
   return (
     <>
       <h1>Weather web</h1>
-      <FetchWeather cityName={"Madrid"} />
+      <CityInput />
     </>
   );
 }
