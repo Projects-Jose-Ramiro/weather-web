@@ -18,6 +18,7 @@ export const CityInput = () => {
         e.preventDefault()
         setCurrentCity(cityInput)
         setIsSubmited(true)
+        setCityInput("")
   }
 
   return (
