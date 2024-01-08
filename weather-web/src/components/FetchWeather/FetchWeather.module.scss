@@ -1,0 +1,27 @@
+.cityInfoContainer {
+    background-color: lightgray;
+    padding: 0.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .cityInfoButton {
+        width: fit-content;
+    }
+
+    .cityInfoData {
+        width: 75%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+
+        h2, img {
+            align-self: center;
+        }
+
+    }
+
+}

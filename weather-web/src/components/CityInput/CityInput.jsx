@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FetchWeather } from "../FetchWeather/FetchWeather";
+import styles from "./CityInput.module.scss"
 
 export const CityInput = () => {
   const [cityInput, setCityInput] = useState("");
@@ -22,14 +23,14 @@ export const CityInput = () => {
   }
 
   return (
-    <>
-    <form onSubmit={handleFormSubmit}>
-        <h2>Select the city</h2>
-        <input type="text" name="city" value={cityInput} onChange={handleInputChange} />
-        <button type="submit">Submit</button>
-        <button type="button" onClick={handleInputReset}>Reset</button>
-    </form>
-    {isSubmited && <FetchWeather cityName={currentCity} />}
-    </>
+    <div className={styles.inputInfoContainer}>
+      <form className={styles.cityInputContainer} onSubmit={handleFormSubmit}>
+          <h2>Select the city</h2>
+          <input className={styles.inputText} type="text" name="city" value={cityInput} onChange={handleInputChange} />
+          <button className={styles.inputButton} type="submit">Submit</button>
+          <button className={styles.inputButton} type="button" onClick={handleInputReset}>Reset</button>
+      </form>
+      {isSubmited && <FetchWeather cityName={currentCity} />}
+    </div>
   );
 };
