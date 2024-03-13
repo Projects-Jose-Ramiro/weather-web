@@ -5,21 +5,23 @@ import styles from "./CityInput.module.scss"
 export const CityInput = () => {
   const [cityInput, setCityInput] = useState("");
   const [currentCity, setCurrentCity] = useState("");
-  const [isSubmited, setIsSubmited] = useState(false)
+  const [isSubmited, setIsSubmited] = useState(false);
+  const [control, setControl] = useState(false);
 
   const handleInputChange = (e) => {
     setCityInput(e.target.value)
   };
   const handleInputReset = () => {
-    setCityInput("")
-    setIsSubmited(false)
+    setCityInput("");
+    setIsSubmited(false);
+    setControl(false);
   }
 
   const handleFormSubmit = (e) => {
-        e.preventDefault()
-        setCurrentCity(cityInput)
-        setIsSubmited(true)
-        setCityInput("")
+        e.preventDefault();
+        setCurrentCity(cityInput);
+        setIsSubmited(true);
+        setCityInput("");
   }
 
   return (
@@ -30,7 +32,7 @@ export const CityInput = () => {
           <button className={styles.inputButton} type="submit">Submit</button>
           <button className={styles.inputButton} type="button" onClick={handleInputReset}>Reset</button>
       </form>
-      {isSubmited && <FetchWeather cityName={currentCity} />}
+      {isSubmited && <FetchWeather cityName={currentCity} check={control} handleCheck={() => setControl(true)} />}
     </div>
   );
 };

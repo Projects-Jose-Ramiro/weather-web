@@ -1,14 +1,27 @@
-import styles from "./FetchWeather.module.scss"
+import styles from "./FetchWeather.module.scss";
 import { useFetchWeather } from "../CustomHooks/useFetchWeather";
 
-export const FetchWeather = ({ cityName }) => {
+export const FetchWeather = ({ cityName, check, handleCheck }) => {
   const { data, loading, error } = useFetchWeather(cityName);
+
+  const handleControl = () => {
+    handleCheck();
+  }
 
   return (
     <div className={styles.cityInfoContainer}>
-      <button className={styles.cityInfoButton} onClick={() => console.log(data)}>Load city info</button>
+      <button
+        className={styles.cityInfoButton}
+        onClick={() => console.log(data)}
+      >
+        Load city info
+      </button>
       {loading && <h3>Loading...</h3>}
-      {error || data === undefined || data.message && <h3>There has been an error. Please try a valid city</h3>}
+      {error ||
+        data === undefined ||
+        (data.message && (
+          <h3>There has been an error. Please try a valid city</h3>
+        ))}
       {data && !data.message && (
         <div className={styles.cityInfoData}>
           <h2>{data?.name}</h2>
@@ -22,6 +35,35 @@ export const FetchWeather = ({ cityName }) => {
           />
         </div>
       )}
+      <div className={styles.cityInfoData}>
+        {data && !data.message && (
+          <>
+            <button className={styles.cityInfoDataBtn} onClick={handleControl}>
+              More information
+            </button>
+            {check && (
+              <div className={styles.cityInfoDataDetails}>
+                <h3>General information:</h3>
+                <h4>Country ID: {data?.sys.country}</h4>
+                <h4>Country timezone: {data?.timezone}</h4>
+                <h3>Weather details:</h3>
+                <h4>Wind speed: {data?.wind.speed}</h4>
+                <h3>Temperature:</h3>
+                <h4>
+                  Min temperature: {parseInt(data?.main?.temp_min - 273.15)}ºC
+                </h4>
+                <h4>
+                  Max temperature: {parseInt(data?.main?.temp_max - 273.15)}ºC
+                </h4>
+                <h3>Visibility:</h3>
+                <h4>
+                Kilometers: {(data?.visibility)/1000}
+                </h4>
+              </div>
+            )}
+          </>
+        )}
+      </div>
     </div>
   );
 };

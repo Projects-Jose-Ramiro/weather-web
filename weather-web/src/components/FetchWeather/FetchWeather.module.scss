@@ -1,22 +1,33 @@
+h2, h3, h4, h5 {
+    padding: 0;
+    margin: 0;
+}
+
 .cityInfoContainer {
     background-color: lightgray;
-    padding: 0.5rem;
+    padding: 1rem 0.5rem;
     margin-bottom: 1.5rem;
     border: 1px solid black;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
 
     .cityInfoButton {
         width: fit-content;
     }
 
-    .cityInfoData {
+    .cityInfoData, .cityInfoDataDetails {
         width: 75%;
         display: flex;
         flex-direction: column;
         align-items: start;
+        gap: 1rem;
+
+        .cityInfoDataBtn {
+            align-self: center;
+        }
 
         h2, img {
             align-self: center;
