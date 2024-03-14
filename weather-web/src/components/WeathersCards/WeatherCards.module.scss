@@ -1,0 +1,23 @@
+.weatherGeneralContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+
+  .weatherDaysContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    .weatherHoursContainer {
+      background-color: lightgray;
+      border: 1px solid black;
+      border-radius: 5px;
+      padding: 0.5rem;
+      width: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}

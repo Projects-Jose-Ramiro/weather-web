@@ -1,22 +1,21 @@
 .inputInfoContainer {
+    width: fit-content;
 
     .cityInputContainer {
         margin: 1rem;
         height: fit-content;
-    
+
         .inputText {
             height:fit-content;
             font-size: medium;
         }
-        
+
         .inputButton {
             height: max-content;
             margin: 0px 0px 0px 3px;
             font-size:medium;
             font-weight: bold;
         }
-    
+
     }
 }
-
-

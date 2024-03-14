@@ -5,14 +5,14 @@ export const FetchWeather = ({ cityName, check, handleCheck }) => {
   const { data, loading, error } = useFetchWeather(cityName);
 
   const handleControl = () => {
-    handleCheck();
+    handleCheck(data);
   }
 
   return (
     <div className={styles.cityInfoContainer}>
       <button
         className={styles.cityInfoButton}
-        onClick={() => console.log(data)}
+        onClick={() => console.log('Coordenadas open weather API: ',data.coord)}
       >
         Load city info
       </button>
