@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { FetchWeather } from "../FetchWeather/FetchWeather";
-import styles from "./CityInput.module.scss";
-import { WeatherCards } from "../WeathersCards/WeatherCards";
+import { FetchBasic } from "../FetchWeather/FetchBasic";
+import styles from "./BasicInput.module.scss";
 
-export const CityInput = () => {
+
+export const BasicInput = () => {
   const [cityInput, setCityInput] = useState("");
   const [currentCity, setCurrentCity] = useState("");
   const [isSubmited, setIsSubmited] = useState(false);
@@ -36,7 +36,6 @@ export const CityInput = () => {
      <div className={styles.appContainer}>
         <h1>Weather web</h1>
       
-      
       <div className={styles.inputInfoContainer}>
         <form className={styles.cityInputContainer} onSubmit={handleFormSubmit}>
           <h2>Select the city</h2>
@@ -59,16 +58,13 @@ export const CityInput = () => {
           </button>
         </form>
         {isSubmited && (
-          <FetchWeather
+          <FetchBasic
             cityName={currentCity}
             check={control}
             handleCheck={handleShowMoreInfo}
           />
         )}
       </div>
-      {isSubmited && control && (
-          <WeatherCards lon={coords.longitud} lat={coords.latitud} />
-        )}
         </div>
     </>
   );
