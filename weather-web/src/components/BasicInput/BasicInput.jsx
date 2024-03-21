@@ -2,7 +2,6 @@ import { useState } from "react";
 import { FetchBasic } from "../FetchWeather/FetchBasic";
 import styles from "./BasicInput.module.scss";
 
-
 export const BasicInput = () => {
   const [cityInput, setCityInput] = useState("");
   const [currentCity, setCurrentCity] = useState("");
@@ -33,39 +32,42 @@ export const BasicInput = () => {
 
   return (
     <>
-     <div className={styles.appContainer}>
+      <div className={styles.appContainer}>
         <h1>Weather web</h1>
-      
-      <div className={styles.inputInfoContainer}>
-        <form className={styles.cityInputContainer} onSubmit={handleFormSubmit}>
-          <h2>Select the city</h2>
-          <input
-            className={styles.inputText}
-            type="text"
-            name="city"
-            value={cityInput}
-            onChange={handleInputChange}
-          />
-          <button className={styles.inputButton} type="submit">
-            Submit
-          </button>
-          <button
-            className={styles.inputButton}
-            type="button"
-            onClick={handleInputReset}
+
+        <div className={styles.inputInfoContainer}>
+          <form
+            className={styles.cityInputContainer}
+            onSubmit={handleFormSubmit}
           >
-            Reset
-          </button>
-        </form>
-        {isSubmited && (
-          <FetchBasic
-            cityName={currentCity}
-            check={control}
-            handleCheck={handleShowMoreInfo}
-          />
-        )}
-      </div>
+            <h2>Select the city</h2>
+            <input
+              className={styles.inputText}
+              type="text"
+              name="city"
+              value={cityInput}
+              onChange={handleInputChange}
+            />
+            <button className={styles.inputButton} type="submit">
+              Submit
+            </button>
+            <button
+              className={styles.inputButton}
+              type="button"
+              onClick={handleInputReset}
+            >
+              Reset
+            </button>
+          </form>
+          {isSubmited && (
+            <FetchBasic
+              cityName={currentCity}
+              check={control}
+              handleCheck={handleShowMoreInfo}
+            />
+          )}
         </div>
+      </div>
     </>
   );
 };

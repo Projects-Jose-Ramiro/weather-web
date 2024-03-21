@@ -6,12 +6,6 @@ export const FetchBasic = ({ cityName, check, handleCheck }) => {
 
   return (
     <div className={styles.cityInfoContainer}>
-      <button
-        className={styles.cityInfoButton}
-        onClick={() => console.log('Coordenadas open weather API: ',data.coord)}
-      >
-        Load city info
-      </button>
       {loading && <h3>Loading...</h3>}
       {error ||
         data === undefined ||
@@ -31,7 +25,6 @@ export const FetchBasic = ({ cityName, check, handleCheck }) => {
           />
         </div>
       )}
-      
     </div>
   );
 };

@@ -6,16 +6,10 @@ export const FetchWeather = ({ cityName, check, handleCheck }) => {
 
   const handleControl = () => {
     handleCheck(data);
-  }
+  };
 
   return (
     <div className={styles.cityInfoContainer}>
-      <button
-        className={styles.cityInfoButton}
-        onClick={() => console.log('Coordenadas open weather API: ',data.coord)}
-      >
-        Load city info
-      </button>
       {loading && <h3>Loading...</h3>}
       {error ||
         data === undefined ||
@@ -38,7 +32,7 @@ export const FetchWeather = ({ cityName, check, handleCheck }) => {
       <div className={styles.cityInfoData}>
         {data && !data.message && (
           <>
-            <button className={styles.cityInfoDataBtn} onClick={handleControl}>
+            <button disabled={check ? true : false} className={styles.cityInfoDataBtn} onClick={handleControl}>
               More information
             </button>
             {check && (
@@ -56,9 +50,7 @@ export const FetchWeather = ({ cityName, check, handleCheck }) => {
                   Max temperature: {parseInt(data?.main?.temp_max - 273.15)}ºC
                 </h4>
                 <h3>Visibility:</h3>
-                <h4>
-                Kilometers: {(data?.visibility)/1000}
-                </h4>
+                <h4>Kilometers: {data?.visibility / 1000}</h4>
               </div>
             )}
           </>
