@@ -7,16 +7,19 @@ import { ProtectedRoute } from "./components/Routes/ProtectedRoute.jsx";
 import { Route, Routes } from "react-router-dom";
 import { BasicInput } from "./components/BasicInput/BasicInput.jsx";
 import { DefaultLayout } from "./LayoutFolder/DefaultLayout.jsx";
+import { AuthProvider } from "./Auth/AuthProvider.jsx";
 
 function App() {
   return (
     <>
       <DefaultLayout />
       <Routes>
+      
         <Route path="/Login" element={<Login />} />
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/" element={<BasicInput />} />
         <Route path="/bienvenido" element={<CityInput />} />
+      
       </Routes>
     </>
   );
