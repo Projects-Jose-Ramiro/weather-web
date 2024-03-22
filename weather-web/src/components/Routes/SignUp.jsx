@@ -1,6 +1,7 @@
 import { useState } from "react";
 import useAuth from "../../Auth/useAuth";
-import { Navigate } from "react-router";
+import { Navigate, useNavigate } from "react-router";
+import { API_URL } from "../../Auth/contants"
 
 
 export function SignUp() {
@@ -8,10 +9,12 @@ export function SignUp() {
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [errorResponse, setErrorResponse] = useState("")
 
-  const auth = useAuth
+  const auth = useAuth();
+  const goTo = useNavigate();
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e) {
     e.preventDefault()
     try{
       const response = await fetch(`${API_URL}/signup`, {
@@ -28,8 +31,14 @@ export function SignUp() {
       })
       if(response.ok){
         console.log("User created successfully")
+        setErrorResponse("")
+
+        goTo("/Login")
       } else {
         console.log("Something went wrong")
+        const json = await response.json();
+        setErrorResponse(json.body.error)
+        return;
       }
     } catch(error){
       console.log(error)
@@ -37,12 +46,13 @@ export function SignUp() {
   }
 
   if (auth.isAuthenticated) {
-    return <Navigate to="/dashboard" />
+    return <Navigate to="/Login" />
   }
 
   return (
     <form className="formLogin" onSubmit={handleSubmit}>
       <h1>SignUp</h1>
+      {errorResponse && <div className="errorMessage"> {errorResponse}</div>}
       <label>Name</label>
       <input
         type="text"
