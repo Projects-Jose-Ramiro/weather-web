@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Navigate, useNavigate } from "react-router"
 import { useAuth } from "../../Auth/useAuth"
-import { API_URL } from "../../Auth/contants"
+import { API_URL } from "../../Auth/constants"
 
 export function Login () {
 

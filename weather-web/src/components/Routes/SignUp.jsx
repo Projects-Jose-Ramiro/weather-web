@@ -1,7 +1,7 @@
 import { useState } from "react";
 import useAuth from "../../Auth/useAuth";
 import { Navigate, useNavigate } from "react-router";
-import { API_URL } from "../../Auth/contants"
+import { API_URL } from "../../Auth/constants"
 
 
 export function SignUp() {

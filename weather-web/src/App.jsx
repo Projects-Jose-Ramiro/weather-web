@@ -1,8 +1,7 @@
-import styles from "./App.module.scss";
+
 import { CityInput } from "./components/CityInput/CityInput";
 import { Login } from "./components/Routes/Login.jsx";
 import { SignUp } from "./components/Routes/SignUp.jsx";
-import { Dashboard } from "./components/Routes/Dashboard.jsx";
 import { ProtectedRoute } from "./components/Routes/ProtectedRoute.jsx";
 import { Route, Routes } from "react-router-dom";
 import { BasicInput } from "./components/BasicInput/BasicInput.jsx";
