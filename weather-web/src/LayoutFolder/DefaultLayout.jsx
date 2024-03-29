@@ -18,6 +18,9 @@ export function DefaultLayout({ children }) {
             <li>
               <Link to="/bienvenido">Bienvenido</Link>
             </li>
+            <li>
+              <Link to="/signout">SignOut</Link>
+            </li>
           </ul>
         </nav>
       </header>

@@ -12,7 +12,7 @@ export const AuthContext = createContext({
   getRefreshToken: () => {},
   saveUser: (_userData) => {},
   getUser: () => ({}),
-  signout: () => {},
+  signOut: () => {},
 });
 
 export function AuthProvider({ children }) {
@@ -68,7 +68,7 @@ export function AuthProvider({ children }) {
     return user;
   }
 
-  function signout() {
+  function signOut() {
     localStorage.removeItem("token");
     setAccessToken("");
     setRefreshToken("");
@@ -120,7 +120,7 @@ export function AuthProvider({ children }) {
         getRefreshToken,
         saveUser,
         getUser,
-        signout,
+        signOut,
       }}
     >
       {isLoading ? <div>Loading...</div> : children}
