@@ -45,7 +45,7 @@ export function AuthProvider({ children }) {
   }
 
   function getRefreshToken() {
-    if (!!refreshToken) {
+    if (!refreshToken) {
       return refreshToken;
     }
     const token = localStorage.getItem("token");
@@ -78,7 +78,7 @@ export function AuthProvider({ children }) {
 
   async function checkAuth() {
     try {
-      if (!!accessToken) {
+      if (!accessToken) {
         const userInfo = await retrieveUserInfo(accessToken);
         setUser(userInfo);
         setIsAuthenticated(true);
@@ -142,7 +142,9 @@ async function retrieveUserInfo(accessToken) {
       const json = await response.json();
       return json.body;
     }
-  } catch (error) {}
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 export const useAuth = () => useContext(AuthContext);
