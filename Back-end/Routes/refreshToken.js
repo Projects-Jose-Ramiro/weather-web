@@ -5,7 +5,7 @@ const { jsonResponse } = require("../lib/jsonResponse");
 const Token = require("../schema/token");
 const router = require("express").Router();
 
-router.post("/refresh-token", async (req, res) => {
+router.post("/", async (req, res) => {
   const refreshToken = getTokenFromHeader(req.headers);
 
   if (refreshToken) {
