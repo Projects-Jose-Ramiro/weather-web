@@ -42,12 +42,16 @@ export function SignUp() {
       }
     } catch(error){
       console.log(error)
+    }finally{
+        if (auth.isAuthenticated) {
+    return <Navigate to="/Login" />
+  }
     }
   }
 
-  if (auth.isAuthenticated) {
-    return <Navigate to="/Login" />
-  }
+  // if (auth.isAuthenticated) {
+  //   return <Navigate to="/Login" />
+  // }
 
   return (
     <form className="formLogin" onSubmit={handleSubmit}>

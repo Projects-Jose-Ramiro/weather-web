@@ -10,11 +10,11 @@ export function Login () {
     const [errorResponse, setErrorResponse] = useState("")
 
     const auth = useAuth();
-    const goTo = useNavigate() 
+    const goTo = useNavigate()
 
-    if(auth.isAuthenticated){
-        return <Navigate to="/bienvenido" />
-    }
+    // if(auth.isAuthenticated){
+    //     return <Navigate to="/bienvenido" />
+    // }
 
     async function handleSubmit(e) {
       e.preventDefault()
@@ -32,7 +32,7 @@ export function Login () {
         if(response.ok){
           console.log("Login successfull")
           setErrorResponse("")
-          const json = (await response.json()) 
+          const json = (await response.json())
           if(json.body.accessToken && json.body.refreshToken){
             auth.saveUser(json)
             goTo("/bienvenido")
@@ -46,10 +46,14 @@ export function Login () {
         }
       } catch(error){
         console.log(error)
+      }finally{
+        if(auth.isAuthenticated){
+          return <Navigate to="/bienvenido" />
+      }
       }
     }
     return (
-     
+
         <form className="form" onSubmit={handleSubmit}>
         <h1>Login</h1>
         {errorResponse && <div className="errorMessage"> {errorResponse}</div>}
@@ -68,6 +72,6 @@ export function Login () {
 
         <button>Login</button>
         </form>
-        
+
     )
 }
