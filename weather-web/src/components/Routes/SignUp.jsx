@@ -1,7 +1,8 @@
 import { useState } from "react";
 import useAuth from "../../Auth/useAuth";
 import { Navigate, useNavigate } from "react-router";
-import { API_URL } from "../../Auth/constants"
+import { API_URL } from "../../Auth/constants";
+import styles from "./SignUp.module.scss";
 
 
 export function SignUp() {
@@ -54,7 +55,7 @@ export function SignUp() {
   // }
 
   return (
-    <form className="formLogin" onSubmit={handleSubmit}>
+    <form className={styles.signUpForm} onSubmit={handleSubmit}>
       <h1>SignUp</h1>
       {errorResponse && <div className="errorMessage"> {errorResponse}</div>}
       <label>Name</label>

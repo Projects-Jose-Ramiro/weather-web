@@ -1,0 +1,24 @@
+.signUpForm {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    width: 20%;
+
+    button {
+        border-radius: 5px;
+        color: black;
+        font-size: medium;
+        background-color: rgb(94, 184, 248);
+        border: 2px solid white;
+        width: 100%;
+        margin-top: 1.2rem;
+    }
+
+    button:hover {
+        color: black;
+        font-weight: bold;
+    }
+
+}
