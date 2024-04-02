@@ -1,4 +1,6 @@
+// DefaultLayout.jsx
 import { Link } from "react-router-dom";
+
 
 export function DefaultLayout({ children }) {
   return (
@@ -19,7 +21,7 @@ export function DefaultLayout({ children }) {
               <Link to="/bienvenido">Bienvenido</Link>
             </li>
             <li>
-              <Link to="/signout">SignOut</Link>
+              <Link to="/signout"> SignOut</Link>
             </li>
           </ul>
         </nav>
