@@ -11,18 +11,19 @@ app.use(cors())
 app.use(express.json())
 
 async function connect(){
-    await mongoose.connect(process.env.DB_CONNECTION_STRING);
+    await mongoose.connect(process.env.DB_CONNECTION_STRING); // Base de datos Ramiro
+    // await mongoose.connect(process.env.DB_CONNECTION_STRING_SECOND); // Base de datos Jose
     console.log("Connected to MongoDB")
 }
 connect().catch(console.error)
 
 
-app.use("/api/signup", require("./routes/signup") )
-app.use("/api/login", require("./routes/login"));
-app.use("/api/user", require("./routes/user"));
-app.use("/api/todos", require("./routes/todos"));
-app.use("/api/refresh-token", require("./routes/refreshToken"));
-app.use("/api/signout", require("./routes/signout"));
+app.use("/api/signup", require("./Routes/signup") )
+app.use("/api/login", require("./Routes/login"));
+app.use("/api/user", require("./Routes/user"));
+app.use("/api/todos", require("./Routes/todos"));
+app.use("/api/refresh-token", require("./Routes/refreshToken"));
+app.use("/api/signout", require("./Routes/signout"));
 
 app.get("/", (req, res) => {
     res.send("Hello World");
