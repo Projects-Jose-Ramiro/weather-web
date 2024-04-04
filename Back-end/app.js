@@ -11,8 +11,8 @@ app.use(cors())
 app.use(express.json())
 
 async function connect(){
-    // await mongoose.connect(process.env.DB_CONNECTION_STRING); // Base de datos Ramiro
-    await mongoose.connect(process.env.DB_CONNECTION_STRING_SECOND); // Base de datos Jose
+    await mongoose.connect(process.env.DB_CONNECTION_STRING); // Base de datos Ramiro
+    // await mongoose.connect(process.env.DB_CONNECTION_STRING_SECOND); // Base de datos Jose
     console.log("Connected to MongoDB")
 }
 connect().catch(console.error)
