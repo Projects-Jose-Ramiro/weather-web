@@ -1,5 +1,12 @@
 import React, { useState } from "react";
 import styles from "./WeatherSlider.module.scss";
+import sun from "../../assets/images/Sunny.jpg";
+import cloud from "../../assets/images/Cloudy.jpg";
+import fog from "../../assets/images/fog.png";
+import rain from "../../assets/images/Rainy.jpg";
+import snow from "../../assets/images/snow.jpg";
+import storm from "../../assets/images/Stormy.jpg";
+import clear from "../../assets/images/Clear.jpg";
 import { useWeatherCards } from "../CustomHooks/useWeatherCards";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -10,6 +17,23 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 export const WeatherSlider = ({ lon, lat }) => {
   const [currentDay, setCurrentDay] = useState(null);
   const { weatherData, error, loading } = useWeatherCards({ lon, lat });
+
+  function changeImageCard(weather) {
+
+    let imagen = "";
+
+    if (weather === 0 || weather === 1 || weather === 2 || weather === 3) {
+      imagen = clear;
+      return imagen;
+    } else if(weather === 45 || weather === 48) {
+      imagen = fog;
+      return imagen;
+    }else{
+      imagen = storm;
+      return imagen;
+    }
+
+  }
 
   const fechaActual = new Date();
   const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -80,15 +104,19 @@ export const WeatherSlider = ({ lon, lat }) => {
               className={styles.weatherSwiperGeneral}
             >
               {currentDay
-                ? hours.map((hour, index) => (
+                ? hours.map((hour, index) => {
+                  const rutaImagen = changeImageCard(weatherData.daily.weather_code[index+1]);
+                  return (
                     <SwiperSlide key={index} className={styles.swiperSlide}>
-                      <div className={styles.slideCont}>
+                      <div style={{ backgroundImage: rutaImagen }} className={styles.slideCont}>
+                        <img src={rutaImagen} alt="Slider background" />
                         <h4>{hour}</h4>
                         <p>Temperature: {currentDay.temperature[index]}ºC</p>
                         <p>Precipitation: {currentDay.precipitation_prob[index]}%</p>
                       </div>
                     </SwiperSlide>
-                  ))
+                  )
+                })
                 : <SwiperSlide className={styles.swiperSlide}>Please select a day</SwiperSlide>}
             </Swiper>
           </div>
