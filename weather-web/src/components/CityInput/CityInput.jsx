@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { FetchWeather } from "../FetchWeather/FetchWeather";
 import styles from "./CityInput.module.scss";
 import { WeatherCards } from "../WeathersCards/WeatherCards";
@@ -35,7 +35,7 @@ export const CityInput = () => {
   return (
     <>
       <div className={styles.appContainer}>
-        <h1>Weather web</h1>
+    
 
         <div className={styles.inputInfoContainer}>
           <form
@@ -73,15 +73,26 @@ export const CityInput = () => {
             />
           )}
         </div>
-        <h2>Weather Cards</h2>
-        {isSubmited && control && (
-          <WeatherCards lon={coords.longitud} lat={coords.latitud} />
-        )}
-        <h2>Weather Slider</h2>
-        {isSubmited && control && (
-          <WeatherSlider lon={coords.longitud} lat={coords.latitud} />
-        )}
+
+        <div className={styles.weatherContainer}>
+          
+          {isSubmited && control && (
+            <WeatherCards lon={coords.longitud} lat={coords.latitud} />
+          )}
+          {/* <h2>Weather Slider</h2>
+          {isSubmited && control && (
+            <WeatherSlider lon={coords.longitud} lat={coords.latitud} />
+          )} */}
+      
+        </div>
+        
       </div>
+      <div className={styles.SliderDown}>
+          
+          {isSubmited && control && (
+            <WeatherSlider lon={coords.longitud} lat={coords.latitud} />
+          )}
+        </div>
     </>
   );
 };

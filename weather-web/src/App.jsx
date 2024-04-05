@@ -10,6 +10,7 @@ function App() {
   return (
 
       <DefaultLayout>
+            <h1 style={{ color: "white" }}>Weather web </h1>
         <Routes>
           <Route path="/Login" element={<Login />} />
           <Route path="/SignUp" element={<SignUp />} />

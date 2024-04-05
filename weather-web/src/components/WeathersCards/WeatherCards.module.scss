@@ -10,12 +10,19 @@
   }
 
   .daysCardsGeneralContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: center;
+    // align-items: center;
+    // flex-wrap: wrap;
+    // gap: 1rem;
+    display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas de tamaño igual */
+  grid-template-rows: repeat(2, 1fr); /* Dos filas de tamaño igual */
+  grid-gap: 1rem; /* Espacio entre las tarjetas */
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
 
     .dayCard {
       border: 1px solid black;

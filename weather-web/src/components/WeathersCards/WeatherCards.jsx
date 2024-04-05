@@ -33,7 +33,7 @@ export const WeatherCards = ({ lon, lat }) => {
       {error && <h3>There has been an error</h3>}
       {weatherData && (
         <div className={styles.weatherGeneralContainer}>
-          <h3>Cards for the next 6 days:</h3>
+          
           <div className={styles.daysCardsGeneralContainer}>
             {nextSixDays.map((day, index) => (
               <div key={index} className={styles.dayCard}>
