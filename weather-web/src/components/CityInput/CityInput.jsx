@@ -33,43 +33,47 @@ export const CityInput = () => {
 
   return (
     <>
-     <div className={styles.appContainer}>
+      <div className={styles.appContainer}>
         <h1>Weather web</h1>
-      
-      
-      <div className={styles.inputInfoContainer}>
-        <form className={styles.cityInputContainer} onSubmit={handleFormSubmit}>
-          <h2>Select the city</h2>
-          <input
-            className={styles.inputText}
-            type="text"
-            name="city"
-            value={cityInput}
-            onChange={handleInputChange}
-          />
-          <button className={styles.inputButton} type="submit">
-            Submit
-          </button>
-          <button
-            className={styles.inputButton}
-            type="button"
-            onClick={handleInputReset}
+
+        <div className={styles.inputInfoContainer}>
+          <form
+            className={styles.cityInputContainer}
+            onSubmit={handleFormSubmit}
           >
-            Reset
-          </button>
-        </form>
-        {isSubmited && (
-          <FetchWeather
-            cityName={currentCity}
-            check={control}
-            handleCheck={handleShowMoreInfo}
-          />
-        )}
-      </div>
-      {isSubmited && control && (
+            <h2>Select the city</h2>
+            <div className={styles.inputBtns}>
+              <input
+                className={styles.inputText}
+                type="text"
+                name="city"
+                value={cityInput}
+                onChange={handleInputChange}
+              />
+              <button className={styles.inputButton} type="submit">
+                Submit
+              </button>
+              <button
+                className={styles.inputButton}
+                type="button"
+                onClick={handleInputReset}
+              >
+                Reset
+              </button>
+            </div>
+          </form>
+          {isSubmited && (
+            <FetchWeather
+              cityName={currentCity}
+              check={control}
+              handleCheck={handleShowMoreInfo}
+            />
+          )}
+        </div>
+        {isSubmited && control && (
           <WeatherCards lon={coords.longitud} lat={coords.latitud} />
         )}
-        </div>
+      </div>
     </>
   );
 };

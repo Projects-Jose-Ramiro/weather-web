@@ -41,23 +41,25 @@ export const BasicInput = () => {
             onSubmit={handleFormSubmit}
           >
             <h2>Select the city</h2>
-            <input
-              className={styles.inputText}
-              type="text"
-              name="city"
-              value={cityInput}
-              onChange={handleInputChange}
-            />
-            <button className={styles.inputButton} type="submit">
-              Submit
-            </button>
-            <button
-              className={styles.inputButton}
-              type="button"
-              onClick={handleInputReset}
-            >
-              Reset
-            </button>
+            <div className={styles.inputBtns}>
+              <input
+                className={styles.inputText}
+                type="text"
+                name="city"
+                value={cityInput}
+                onChange={handleInputChange}
+              />
+              <button className={styles.inputButton} type="submit">
+                Submit
+              </button>
+              <button
+                className={styles.inputButton}
+                type="button"
+                onClick={handleInputReset}
+              >
+                Reset
+              </button>
+            </div>
           </form>
           {isSubmited && (
             <FetchBasic

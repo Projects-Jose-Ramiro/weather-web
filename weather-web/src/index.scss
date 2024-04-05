@@ -1,5 +1,15 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: rgb(94, 184, 248);
+    background-color: #d8eeee;
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #root {
+        background-image: linear-gradient(180deg, #005986, #005986 10%, #64b3c9 35%, #d8eeee 75%, #d8eeee);
+        height: 100vh;
+    }
+
 }
