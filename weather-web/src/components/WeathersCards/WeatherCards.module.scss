@@ -5,41 +5,46 @@
   gap: 1rem;
   margin: 0 1.5rem 3rem 1.5rem;
 
-  h3, h4, h5, h6 {
-    color: black;
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: white;
   }
 
   .daysCardsGeneralContainer {
-    // display: flex;
-    // flex-direction: row;
-    // justify-content: center;
-    // align-items: center;
-    // flex-wrap: wrap;
-    // gap: 1rem;
     display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Tres columnas de tamaño igual */
-  grid-template-rows: repeat(2, 1fr); /* Dos filas de tamaño igual */
-  grid-gap: 1rem; /* Espacio entre las tarjetas */
-  justify-content: center;
-  align-items: center;
-  margin-top: 1rem;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas de tamaño igual */
+    grid-template-rows: repeat(2, 1fr); /* Dos filas de tamaño igual */
+    grid-gap: 1rem; /* Espacio entre las tarjetas */
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
 
     .dayCard {
+      display: flex;
+      flex-direction: column;
       border: 1px solid black;
       border-radius: 0.75rem;
-      background-color: lightgray;
+      background-color: rgba(0, 89, 134, 0.5);
       padding: 0.5rem;
+      width: 6rem;
+
+      h3 {
+        display: flex;
+        align-self: center;
+      }
 
       img {
-        height: 40px;
-        width: 40px;
+        display: flex;
+        align-self: center;
+        height: 5rem;
+        width: 5rem;
       }
 
       .dayTitle {
         margin-bottom: 0.5rem;
       }
-
     }
   }
-
 }

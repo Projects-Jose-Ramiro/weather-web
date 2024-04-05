@@ -35,9 +35,7 @@ export const CityInput = () => {
   return (
     <>
       <div className={styles.appContainer}>
-    
-
-        <div className={styles.inputInfoContainer}>
+        <div className={styles.ContainerUp}>
           <form
             className={styles.cityInputContainer}
             onSubmit={handleFormSubmit}
@@ -65,34 +63,25 @@ export const CityInput = () => {
               )}
             </div>
           </form>
-          {isSubmited && (
-            <FetchWeather
-              cityName={currentCity}
-              check={control}
-              handleCheck={handleShowMoreInfo}
-            />
-          )}
         </div>
-
-        <div className={styles.weatherContainer}>
-          
-          {isSubmited && control && (
-            <WeatherCards lon={coords.longitud} lat={coords.latitud} />
-          )}
-          {/* <h2>Weather Slider</h2>
-          {isSubmited && control && (
-            <WeatherSlider lon={coords.longitud} lat={coords.latitud} />
-          )} */}
-      
+        <div className={styles.ContainerBottom}>
+            {isSubmited && (
+              <FetchWeather
+                cityName={currentCity}
+                check={control}
+                handleCheck={handleShowMoreInfo}
+              />
+            )}
+            {isSubmited && control && (
+              <WeatherCards lon={coords.longitud} lat={coords.latitud} />
+            )}
         </div>
-        
       </div>
       <div className={styles.SliderDown}>
-          
-          {isSubmited && control && (
-            <WeatherSlider lon={coords.longitud} lat={coords.latitud} />
-          )}
-        </div>
+        {isSubmited && control && (
+          <WeatherSlider lon={coords.longitud} lat={coords.latitud} />
+        )}
+      </div>
     </>
   );
 };

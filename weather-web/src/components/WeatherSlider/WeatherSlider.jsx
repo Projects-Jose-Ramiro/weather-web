@@ -18,55 +18,136 @@ export const WeatherSlider = ({ lon, lat }) => {
   const [currentDay, setCurrentDay] = useState(null);
   const { weatherData, error, loading } = useWeatherCards({ lon, lat });
 
-  function changeImageCard(weather) {
+  console.log("Data weather: ", weatherData);
 
+  function changeImageCard(weather) {
     let imagen = "";
 
-    if (weather === 0 || weather === 1 || weather === 2 || weather === 3) {
+    if (weather === 1 || weather === 2 || weather === 3) {
       imagen = clear;
       return imagen;
-    } else if(weather === 45 || weather === 48) {
+    } else if (weather === 45 || weather === 48) {
       imagen = fog;
       return imagen;
-    }else{
+    } else if (weather === 0) {
+      imagen = sun;
+      return imagen;
+    } else if (
+      weather === 85 ||
+      weather === 86 ||
+      weather === 77 ||
+      weather === 71 ||
+      weather === 75 ||
+      weather === 73
+    ) {
+      imagen = snow;
+      return imagen;
+    } else if (
+      weather === 80 ||
+      weather === 81 ||
+      weather === 82 ||
+      weather === 61 ||
+      weather === 65 ||
+      weather === 63 ||
+      weather === 66 ||
+      weather === 67
+    ) {
+      imagen = rain;
+      return imagen;
+    } else if (weather === 96 || weather === 95 || weather === 99) {
       imagen = storm;
       return imagen;
+    } else {
+      imagen = cloud;
+      return imagen;
     }
-
   }
 
   const fechaActual = new Date();
-  const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const dayNames = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
   const days = Array.from({ length: 7 }, (_, i) => {
     const newDate = new Date(fechaActual);
     newDate.setDate(newDate.getDate() + i);
     return dayNames[newDate.getDay()];
   });
 
-  const hours = Array.from({ length: 24 }, (_, i) => `Hour: ${i < 10 ? "0" + i : i}:00`);
+  const hours = Array.from(
+    { length: 24 },
+    (_, i) => `Hour: ${i < 10 ? "0" + i : i}:00`
+  );
 
   const handleDaySelect = (day) => {
     switch (day) {
       case 0:
-        setCurrentDay({ index: 0, temperature: weatherData.hourly.temperature_2m.slice(0, 24), precipitation_prob: weatherData.hourly.precipitation_probability.slice(0, 24) });
+        setCurrentDay({
+          index: 0,
+          temperature: weatherData.hourly.temperature_2m.slice(0, 24),
+          precipitation_prob:
+            weatherData.hourly.precipitation_probability.slice(0, 24),
+          weather_code: weatherData.hourly.weather_code.slice(0, 24),
+        });
         break;
       case 1:
-        setCurrentDay({ index: 1, temperature: weatherData.hourly.temperature_2m.slice(24, 48), precipitation_prob: weatherData.hourly.precipitation_probability.slice(24, 48) });
+        setCurrentDay({
+          index: 1,
+          temperature: weatherData.hourly.temperature_2m.slice(24, 48),
+          precipitation_prob:
+            weatherData.hourly.precipitation_probability.slice(24, 48),
+          weather_code: weatherData.hourly.weather_code.slice(24, 48),
+        });
         break;
       case 2:
-        setCurrentDay({ index: 2, temperature: weatherData.hourly.temperature_2m.slice(48, 72), precipitation_prob: weatherData.hourly.precipitation_probability.slice(48, 72) });
+        setCurrentDay({
+          index: 2,
+          temperature: weatherData.hourly.temperature_2m.slice(48, 72),
+          precipitation_prob:
+            weatherData.hourly.precipitation_probability.slice(48, 72),
+          weather_code: weatherData.hourly.weather_code.slice(48, 72),
+        });
         break;
       case 3:
-        setCurrentDay({ index: 3, temperature: weatherData.hourly.temperature_2m.slice(72, 96), precipitation_prob: weatherData.hourly.precipitation_probability.slice(72, 96) });
+        setCurrentDay({
+          index: 3,
+          temperature: weatherData.hourly.temperature_2m.slice(72, 96),
+          precipitation_prob:
+            weatherData.hourly.precipitation_probability.slice(72, 96),
+          weather_code: weatherData.hourly.weather_code.slice(72, 96),
+        });
         break;
       case 4:
-        setCurrentDay({ index: 4, temperature: weatherData.hourly.temperature_2m.slice(96, 120), precipitation_prob: weatherData.hourly.precipitation_probability.slice(96, 120) });
+        setCurrentDay({
+          index: 4,
+          temperature: weatherData.hourly.temperature_2m.slice(96, 120),
+          precipitation_prob:
+            weatherData.hourly.precipitation_probability.slice(96, 120),
+          weather_code: weatherData.hourly.weather_code.slice(96, 120),
+        });
         break;
       case 5:
-        setCurrentDay({ index: 5, temperature: weatherData.hourly.temperature_2m.slice(120, 144), precipitation_prob: weatherData.hourly.precipitation_probability.slice(120, 144) });
+        setCurrentDay({
+          index: 5,
+          temperature: weatherData.hourly.temperature_2m.slice(120, 144),
+          precipitation_prob:
+            weatherData.hourly.precipitation_probability.slice(120, 144),
+          weather_code: weatherData.hourly.weather_code.slice(120, 144),
+        });
         break;
       case 6:
-        setCurrentDay({ index: 6, temperature: weatherData.hourly.temperature_2m.slice(144, 168), precipitation_prob: weatherData.hourly.precipitation_probability.slice(144, 168) });
+        setCurrentDay({
+          index: 6,
+          temperature: weatherData.hourly.temperature_2m.slice(144, 168),
+          precipitation_prob:
+            weatherData.hourly.precipitation_probability.slice(144, 168),
+          weather_code: weatherData.hourly.weather_code.slice(144, 168),
+        });
         break;
       default:
         setCurrentDay(null);
@@ -83,7 +164,11 @@ export const WeatherSlider = ({ lon, lat }) => {
           <div className={styles.daysGeneralContainer}>
             {days.map((day, index) => (
               <h3
-                className={currentDay?.index === index ? `${styles.dayItem} ${styles.daySelected}` : styles.dayItem}
+                className={
+                  currentDay?.index === index
+                    ? `${styles.dayItem} ${styles.daySelected}`
+                    : styles.dayItem
+                }
                 key={index}
                 onClick={() => handleDaySelect(index)}
               >
@@ -103,21 +188,31 @@ export const WeatherSlider = ({ lon, lat }) => {
               modules={[Autoplay, Pagination, Navigation]}
               className={styles.weatherSwiperGeneral}
             >
-              {currentDay
-                ? hours.map((hour, index) => {
-                  const rutaImagen = changeImageCard(weatherData.daily.weather_code[index+1]);
+              {currentDay ? (
+                hours.map((hour, index) => {
+                  const rutaImagen = changeImageCard(
+                    currentDay.weather_code[index]
+                  );
                   return (
                     <SwiperSlide key={index} className={styles.swiperSlide}>
-                      <div style={{ backgroundImage: rutaImagen }} className={styles.slideCont}>
-                        <img src={rutaImagen} alt="Slider background" />
+                      <div
+                        style={{ backgroundImage: `url(${rutaImagen})` }}
+                        className={styles.slideCont}
+                      >
                         <h4>{hour}</h4>
                         <p>Temperature: {currentDay.temperature[index]}ºC</p>
-                        <p>Precipitation: {currentDay.precipitation_prob[index]}%</p>
+                        <p>
+                          Precipitation: {currentDay.precipitation_prob[index]}%
+                        </p>
                       </div>
                     </SwiperSlide>
-                  )
+                  );
                 })
-                : <SwiperSlide className={styles.swiperSlide}>Please select a day</SwiperSlide>}
+              ) : (
+                <SwiperSlide className={styles.swiperSlide}>
+                  Please select a day
+                </SwiperSlide>
+              )}
             </Swiper>
           </div>
         </div>

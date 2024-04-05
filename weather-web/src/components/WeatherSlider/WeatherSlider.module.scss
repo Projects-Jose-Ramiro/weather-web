@@ -27,7 +27,7 @@
     }
 
     .daySelected {
-      color: white;
+      color: darkgray;
       text-decoration: underline;
     }
   }
@@ -44,7 +44,6 @@
       .swiperSlide {
         text-align: center;
         font-size: 18px;
-        background: #fff;
 
         /* Center slide text vertically */
         display: flex;
@@ -52,14 +51,18 @@
         align-items: center;
 
         .slideCont {
+
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          height: 100%;
+          width: 30rem;
+          background-size:cover;
+          background-repeat: no-repeat;
+
           h4,
           p {
             color: black;
-          }
-
-          img {
-            width: 100px;
-            height: 60px;
           }
 
         }

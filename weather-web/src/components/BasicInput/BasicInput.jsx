@@ -33,8 +33,6 @@ export const BasicInput = () => {
   return (
     <>
       <div className={styles.appContainer}>
-        <h1>Weather web</h1>
-
         <div className={styles.inputInfoContainer}>
           <form
             className={styles.cityInputContainer}
