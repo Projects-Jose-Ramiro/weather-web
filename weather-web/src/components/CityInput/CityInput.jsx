@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FetchWeather } from "../FetchWeather/FetchWeather";
 import styles from "./CityInput.module.scss";
 import { WeatherCards } from "../WeathersCards/WeatherCards";
+import { WeatherSlider } from "../WeatherSlider/WeatherSlider";
 
 export const CityInput = () => {
   const [cityInput, setCityInput] = useState("");
@@ -53,13 +54,15 @@ export const CityInput = () => {
               <button className={styles.inputButton} type="submit">
                 Submit
               </button>
-              <button
-                className={styles.inputButton}
-                type="button"
-                onClick={handleInputReset}
-              >
-                Reset
-              </button>
+              {isSubmited && (
+                <button
+                  className={styles.inputButton}
+                  type="button"
+                  onClick={handleInputReset}
+                >
+                  Reset
+                </button>
+              )}
             </div>
           </form>
           {isSubmited && (
@@ -70,8 +73,13 @@ export const CityInput = () => {
             />
           )}
         </div>
+        <h2>Weather Cards</h2>
         {isSubmited && control && (
           <WeatherCards lon={coords.longitud} lat={coords.latitud} />
+        )}
+        <h2>Weather Slider</h2>
+        {isSubmited && control && (
+          <WeatherSlider lon={coords.longitud} lat={coords.latitud} />
         )}
       </div>
     </>
