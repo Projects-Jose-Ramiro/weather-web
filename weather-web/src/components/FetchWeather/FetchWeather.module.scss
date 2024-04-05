@@ -1,38 +1,135 @@
-h2, h3, h4, h5 {
-    padding: 0;
-    margin: 0;
+h2,
+h3,
+h4,
+h5 {
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+
+hr {
+  width: 100%;
+  color: white;
 }
 
 .cityInfoContainer {
-    background-color: white;
-    padding: 1rem 0.5rem;
-    margin-bottom: 1.5rem;
-    border: 1px solid black;
-    border-radius: 5px;
+  background-color: rgba(0, 89, 134, 0.5);
+  padding: 1rem 0.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid black;
+  border-radius: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  .cityInfoButton {
+    width: fit-content;
+  }
+
+  .cityInfoData {
+    width: 75%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+    align-items: start;
+    gap: 0.6rem;
 
-    .cityInfoButton {
-        width: fit-content;
+    .infoDataTitle {
+      align-self: center;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    .cityInfoData, .cityInfoDataDetails {
-        width: 75%;
+    .infoDataName {
+      align-self: center;
+      margin: 0.8rem 0;
+    }
+
+    .infoDataSubtitle {
+      align-self: center;
+    }
+
+    .infoDataCards {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      margin: 1rem 0;
+
+      .windCard {
+        padding: 0.8rem;
+        gap: 0.5rem;
         display: flex;
         flex-direction: column;
-        align-items: start;
-        gap: 1rem;
+        align-items: center;
+        border-radius: 0.75rem;
+        background-color: dodgerblue;
 
-        .cityInfoDataBtn {
-            align-self: center;
+        :first-child {
+          font-weight: bolder;
         }
+      }
 
-        h2, img {
-            align-self: center;
+      .humidityCard {
+        padding: 0.8rem;
+        gap: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 0.75rem;
+        background-color: limegreen;
+
+        :first-child {
+          font-weight: bolder;
         }
-
+      }
     }
 
+    .heatIndexCont {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+
+  .cityInfoSecondData,
+  .cityInfoDataDetails {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+
+    .cityInfoDataBtnHide {
+      display: none;
+    }
+
+    .cityInfoDataBtnShow {
+      align-self: center;
+      padding: 8px 16px;
+      border-radius: 16px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      letter-spacing: 0.03em;
+      line-height: 1;
+      z-index: 1;
+      transition: 0.2s ease;
+      background-color: rgba(0, 89, 134, 0.6);
+      color: white;
+      font-weight: bold;
+    }
+
+    .cityInfoDataBtnShow:hover {
+        background-color: white;
+        color: black;
+        cursor: pointer;
+    }
+
+    h2,
+    img {
+      align-self: center;
+    }
+  }
 }

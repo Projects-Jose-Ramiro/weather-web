@@ -52,13 +52,15 @@ export const BasicInput = () => {
               <button className={styles.inputButton} type="submit">
                 Submit
               </button>
-              <button
-                className={styles.inputButton}
-                type="button"
-                onClick={handleInputReset}
-              >
-                Reset
-              </button>
+              {isSubmited && (
+                <button
+                  className={styles.inputButton}
+                  type="button"
+                  onClick={handleInputReset}
+                >
+                  Reset
+                </button>
+              )}
             </div>
           </form>
           {isSubmited && (

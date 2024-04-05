@@ -1,6 +1,7 @@
 import { useContext, createContext, useState, useEffect } from "react";
-import requestNewAccessToken from "../Auth/RequestNewAccessTokens"
-import { API_URL } from "../Auth/constants"
+import requestNewAccessToken from "../Auth/RequestNewAccessTokens";
+import styles from "./AuthProvider.module.scss";
+import { API_URL } from "../Auth/constants";
 
 export const AuthContext = createContext({
   isAuthenticated: false,
@@ -123,7 +124,7 @@ export function AuthProvider({ children }) {
         signOut,
       }}
     >
-      {isLoading ? <div>Loading...</div> : children}
+      {isLoading ? <div className={styles.authCont}><h1 className={styles.loadingTitle}>Loading...</h1></div> : children}
     </AuthContext.Provider>
   );
 }

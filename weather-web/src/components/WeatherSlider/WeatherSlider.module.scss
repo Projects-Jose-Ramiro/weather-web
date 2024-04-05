@@ -1,0 +1,63 @@
+.weatherGeneralContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10rem;
+
+  h3 {
+    color: black;
+  }
+
+  .daysGeneralContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    .dayItem {
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .dayItem:hover {
+      opacity: 0.5;
+    }
+
+    .daySelected {
+      color: white;
+      text-decoration: underline;
+    }
+  }
+
+  .swiperCont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .weatherSwiperGeneral {
+      width: 700px;
+      height: 300px;
+
+      .swiperSlide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .slideCont {
+          h4,
+          p {
+            color: black;
+          }
+        }
+      }
+    }
+  }
+}
