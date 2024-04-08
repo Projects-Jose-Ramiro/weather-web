@@ -4,49 +4,48 @@ import { Navigate, useNavigate } from "react-router";
 import { API_URL } from "../../Auth/constants";
 import styles from "./SignUp.module.scss";
 
-
 export function SignUp() {
-  const [name, setName] = useState("")
-  const [username, setUsername] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [errorResponse, setErrorResponse] = useState("")
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorResponse, setErrorResponse] = useState("");
 
   const auth = useAuth();
   const goTo = useNavigate();
 
   async function handleSubmit(e) {
-    e.preventDefault()
-    try{
+    e.preventDefault();
+    try {
       const response = await fetch(`${API_URL}/signup`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           name,
           username,
           email,
-          password
-        })
-      })
-      if(response.ok){
-        console.log("User created successfully")
-        setErrorResponse("")
+          password,
+        }),
+      });
+      if (response.ok) {
+        console.log("User created successfully");
+        setErrorResponse("");
 
-        goTo("/Login")
+        goTo("/Login");
       } else {
-        console.log("Something went wrong")
+        console.log("Something went wrong");
         const json = await response.json();
-        setErrorResponse(json.body.error)
+        setErrorResponse(json.body.error);
         return;
       }
-    } catch(error){
-      console.log(error)
-    }finally{
-        if (auth.isAuthenticated) {
-    return <Navigate to="/Login" />
-  }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      if (auth.isAuthenticated) {
+        return <Navigate to="/Login" />;
+      }
     }
   }
 
@@ -56,7 +55,7 @@ export function SignUp() {
 
   return (
     <form className={styles.signUpForm} onSubmit={handleSubmit}>
-      <h1>SignUp</h1>
+      <h2>SignUp</h2>
       {errorResponse && <div className="errorMessage"> {errorResponse}</div>}
       <label>Name</label>
       <input

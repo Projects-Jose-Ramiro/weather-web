@@ -163,7 +163,7 @@ export const WeatherSlider = ({ lon, lat }) => {
           <h3>Precipitation probability next 7 days:</h3>
           <div className={styles.daysGeneralContainer}>
             {days.map((day, index) => (
-              <h3
+              <h4
                 className={
                   currentDay?.index === index
                     ? `${styles.dayItem} ${styles.daySelected}`
@@ -173,7 +173,7 @@ export const WeatherSlider = ({ lon, lat }) => {
                 onClick={() => handleDaySelect(index)}
               >
                 {day}
-              </h3>
+              </h4>
             ))}
           </div>
           <div className={styles.swiperCont}>
@@ -199,11 +199,14 @@ export const WeatherSlider = ({ lon, lat }) => {
                         style={{ backgroundImage: `url(${rutaImagen})` }}
                         className={styles.slideCont}
                       >
-                        <h4>{hour}</h4>
-                        <p>Temperature: {currentDay.temperature[index]}ºC</p>
-                        <p>
-                          Precipitation: {currentDay.precipitation_prob[index]}%
-                        </p>
+                        <div className={styles.slideText}>
+                          <h4>{hour}</h4>
+                          <p>Temperature: {currentDay.temperature[index]}ºC</p>
+                          <p>
+                            Precipitation:{" "}
+                            {currentDay.precipitation_prob[index]}%
+                          </p>
+                        </div>
                       </div>
                     </SwiperSlide>
                   );

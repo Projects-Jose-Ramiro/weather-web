@@ -53,18 +53,20 @@ export function Login() {
   }
   return (
     <form className={styles.loginForm} onSubmit={handleSubmit}>
-      <h1>Login</h1>
+      <h2>Login</h2>
       {errorResponse && <div className="errorMessage"> {errorResponse}</div>}
       <label>Username</label>
       <input
         type="text"
         value={username}
+        placeholder="Username"
         onChange={(e) => setUsername(e.target.value)}
       />
       <label>Password</label>
       <input
         type="password"
         value={password}
+        placeholder="Password"
         onChange={(e) => setPassword(e.target.value)}
       />
 

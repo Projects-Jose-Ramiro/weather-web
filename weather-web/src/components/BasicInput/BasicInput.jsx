@@ -47,18 +47,20 @@ export const BasicInput = () => {
                 value={cityInput}
                 onChange={handleInputChange}
               />
-              <button className={styles.inputButton} type="submit">
-                Submit
-              </button>
-              {isSubmited && (
-                <button
-                  className={styles.inputButton}
-                  type="button"
-                  onClick={handleInputReset}
-                >
-                  Reset
+              <div className={styles.btnsGroup}>
+                <button className={styles.inputButton} type="submit">
+                  Submit
                 </button>
-              )}
+                {isSubmited && (
+                  <button
+                    className={styles.inputButton}
+                    type="button"
+                    onClick={handleInputReset}
+                  >
+                    Reset
+                  </button>
+                )}
+              </div>
             </div>
           </form>
           {isSubmited && (

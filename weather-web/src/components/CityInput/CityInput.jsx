@@ -49,32 +49,34 @@ export const CityInput = () => {
                 value={cityInput}
                 onChange={handleInputChange}
               />
-              <button className={styles.inputButton} type="submit">
-                Submit
-              </button>
-              {isSubmited && (
-                <button
-                  className={styles.inputButton}
-                  type="button"
-                  onClick={handleInputReset}
-                >
-                  Reset
+              <div className={styles.btnsGroup}>
+                <button className={styles.inputButton} type="submit">
+                  Submit
                 </button>
-              )}
+                {isSubmited && (
+                  <button
+                    className={styles.inputButton}
+                    type="button"
+                    onClick={handleInputReset}
+                  >
+                    Reset
+                  </button>
+                )}
+              </div>
             </div>
           </form>
         </div>
         <div className={styles.ContainerBottom}>
-            {isSubmited && (
-              <FetchWeather
-                cityName={currentCity}
-                check={control}
-                handleCheck={handleShowMoreInfo}
-              />
-            )}
-            {isSubmited && control && (
-              <WeatherCards lon={coords.longitud} lat={coords.latitud} />
-            )}
+          {isSubmited && (
+            <FetchWeather
+              cityName={currentCity}
+              check={control}
+              handleCheck={handleShowMoreInfo}
+            />
+          )}
+          {isSubmited && control && (
+            <WeatherCards lon={coords.longitud} lat={coords.latitud} />
+          )}
         </div>
       </div>
       <div className={styles.SliderDown}>
