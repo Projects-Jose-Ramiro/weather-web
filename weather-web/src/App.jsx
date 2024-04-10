@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/Login" element={<Login />} />
           <Route path="/SignUp" element={<SignUp />} />
-          <Route path="/bienvenido" element={<CityInput />} />
+          <Route path="/welcome" element={<CityInput />} />
           <Route path="/" element={<BasicInput />} />
         </Routes>
       </DefaultLayout>

@@ -39,7 +39,7 @@ export function DefaultLayout({ children }) {
               </li>
               {localStorage.getItem("token") ? (
                 <li>
-                  <Link to="/bienvenido">Bienvenido</Link>
+                  <Link to="/welcome">Welcome</Link>
                 </li>
               ) : null}
               {localStorage.getItem("token") ? null : (
