@@ -4,7 +4,8 @@
     flex-direction: column;
     align-items: center;
     gap: 0.4rem;
-    width: 20%;
+    min-width: fit-content;
+    max-width: 20%;
     border: 1px solid white;
     border-radius: 0.5rem;
     padding: 1rem;
